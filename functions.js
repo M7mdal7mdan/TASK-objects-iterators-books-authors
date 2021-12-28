@@ -1,6 +1,5 @@
 const authors = require("./authors.json");
 const books = require("./books.json");
-
 /**************************************************************
  * getBookById(bookId, books):
  * - receives a bookId
@@ -8,9 +7,8 @@ const books = require("./books.json");
  * - returns the book object that matches that id
  * - returns undefined if no matching book is found
  ****************************************************************/
-function getBookById(bookId, books) {
-  // Your code goes here
-}
+getBookById = (bookId, books) => books.find(book=>book.id===bookId)
+
 // console.log(getBookById(12, books));
 
 /**************************************************************
@@ -20,9 +18,12 @@ function getBookById(bookId, books) {
  * - returns the author that matches that name (CASE INSENSITIVE)
  * - returns undefined if no matching author is found
  ****************************************************************/
-function getAuthorByName(authorName, authors) {
-  // Your code goes here
-}
+//convert all names into lowercase of the author
+//match author name
+//No author name match? undefined
+
+getAuthorByName = (authorName, authors) => authors.find(author => author.name.toLowerCase() === authorName.toLowerCase())
+
 // console.log(getAuthorByName("J.K. Rowling", authors));
 
 /**************************************************************
@@ -31,10 +32,16 @@ function getAuthorByName(authorName, authors) {
  * - returns an array of objects with the format:
  *    [{ author: <NAME>, bookCount: <NUMBER_OF_BOOKS> }]
  ****************************************************************/
-function bookCountsByAuthor(authors) {
-  // Your code goes here
-}
-// console.log(bookCountsByAuthor(authors));
+//programming:
+//Create an array --
+//Look for author
+//Give me the length of the array from authors.json under books
+//push what we return into the array--
+verifyAuthor = (X) => authors.find(author => author.name === X) 
+// bookCountsByAuthor = (X) => X.books.length
+
+
+console.log(bookCountsByAuthor(authors));
 
 /**************************************************************
  * booksByColor(books):
